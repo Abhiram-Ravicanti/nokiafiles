@@ -1,0 +1,40 @@
+apiVersion: "clickhouse.altinity.com/v1"
+kind: "ClickHouseInstallation"
+metadata:
+  name: "clickhousedev"
+spec:
+  configuration:
+    zookeeper:
+      nodes:
+        - host: zookeeper.zoo1ns
+          port: 2181
+    users:
+      ravicant/networks/ip: "::/0"
+      ravicant/password: Fantasia1
+      ravicant/profile: default
+      ravicant/access_management: 1
+      tuannm/networks/ip: "::/0"
+      tuannm//password: Fantasia1
+      tuannm//profile: default
+      tuannm//access_management: 1
+    clusters:
+      - name: "clickhousedev"
+        layout:
+          shardsCount: 2
+          replicasCount: 2
+        templates:
+          podTemplate: clickhouse-stable
+  defaults:
+    templates:
+      volumeClaimTemplate: default
+      podTemplate: default
+  templates:
+    volumeClaimTemplates:
+      - name: default
+        reclaimPolicy: Retain
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 2000Gi
