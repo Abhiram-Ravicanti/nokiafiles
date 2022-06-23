@@ -11,3 +11,4 @@ spec:
   - port: 9000
   selector:
     app: internal-app1
+    
