@@ -8,7 +8,6 @@ spec:
   type: LoadBalancer
   ports:
   - port: 8123
-  - port: 9000
   selector:
     app: internal-app1
     
