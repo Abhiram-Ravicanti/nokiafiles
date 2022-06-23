@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: internal-app
+  name: internal-app1
   annotations:
     service.beta.kubernetes.io/azure-load-balancer-internal: "true"
 spec:
@@ -10,4 +10,4 @@ spec:
   - port: 8123
   - port: 9000
   selector:
-    app: internal-app
+    app: internal-app1
