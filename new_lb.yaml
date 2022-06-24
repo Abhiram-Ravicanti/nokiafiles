@@ -4,9 +4,9 @@ metadata:
   name: clickhouse-clickhousedev1
   namespace: chns
   annotations: 
-	service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
   labels:
-	clickhouse.altinity.com/Service: chi
+    clickhouse.altinity.com/Service: chi
     clickhouse.altinity.com/app: chop
     clickhouse.altinity.com/chi: clickhousedev
     clickhouse.altinity.com/namespace: chns
@@ -14,7 +14,7 @@ metadata:
 spec: 
   type: LoadBalancer
   ports: 
-	- name: http
+    - name: http
       protocol: TCP
       port: 8123
       targetPort: http
