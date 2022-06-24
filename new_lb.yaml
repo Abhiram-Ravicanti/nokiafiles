@@ -18,12 +18,10 @@ spec:
       protocol: TCP
       port: 8123
       targetPort: http
-      nodePort: 32755
     - name: tcp
       protocol: TCP
       port: 9000
       targetPort: tcp
-      nodePort: 31106
   selector: 
     clickhouse.altinity.com/app: chop
     clickhouse.altinity.com/chi: clickhousedev
