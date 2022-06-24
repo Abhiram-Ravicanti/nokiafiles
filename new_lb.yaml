@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata: 
+  name: clickhouse-clickhousedev1
+  namespace: chns
+  annotations: 
+	service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+  labels:
+	clickhouse.altinity.com/Service: chi
+    clickhouse.altinity.com/app: chop
+    clickhouse.altinity.com/chi: clickhousedev
+    clickhouse.altinity.com/namespace: chns
+    clickhouse.altinity.com/object-version: 95ecba710e5ae718736b99566a7476793f131018
+spec: 
+  type: LoadBalancer
+  ports: 
+	- name: http
+      protocol: TCP
+      port: 8123
+      targetPort: http
+      nodePort: 32755
+    - name: tcp
+      protocol: TCP
+      port: 9000
+      targetPort: tcp
+      nodePort: 31106
+  selector: 
+    clickhouse.altinity.com/app: chop
+    clickhouse.altinity.com/chi: clickhousedev
+    clickhouse.altinity.com/namespace: chns
+    clickhouse.altinity.com/ready: "yes"
+    
