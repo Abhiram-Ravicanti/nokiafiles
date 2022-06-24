@@ -28,3 +28,4 @@ spec:
     clickhouse.altinity.com/namespace: chns
     clickhouse.altinity.com/ready: "yes"
     
+    
